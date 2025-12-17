@@ -1,14 +1,19 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ProductCard } from "@/components/ProductCard";
 import { FilterBar } from "@/components/FilterBar";
-import { type Product, type Category, categoryLabels } from "@shared/schema";
+import { type Product, type Category, categoryLabels, products } from "@shared/schema";
 import { Package } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useLanguage } from "@/i18n";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { SlidersHorizontal } from "lucide-react";
+// import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+// import { Button } from "@/components/ui/button";
+// import { SlidersHorizontal } from "lucide-react";
+import CircularGallery from '@/components/CircularGallery.tsx';
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import Aurora from "@/components/ui/Aurora";
+
+
 
 function ProductSkeleton() {
   return (
@@ -40,6 +45,7 @@ async function fetchProducts(category: Category | "all"): Promise<Product[]> {
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { language, t, tCategoryLabel } = useLanguage();
 
   const { data: products = [], isLoading, isFetching, isError } = useQuery<Product[]>({
@@ -53,7 +59,7 @@ export default function Products() {
 
 
   return (
-    <div  className="min-h-screen pt-20 md:pt-24 bg-gradient-to-b from-blue-50/20 via-white to-blue-50/10" data-testid="page-products">
+    <div className="min-h-screen pt-20 md:pt-24 bg-gradient-to-b from-blue-50/20 via-white to-blue-50/10" data-testid="page-products">
       {/* Premium header with gentle blue depth */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/8 via-transparent to-pink-400/8" />
@@ -68,6 +74,9 @@ export default function Products() {
           </p>
         </div>
       </section>
+      <div style={{ height: '600px', position: 'relative' }}>
+        <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} />
+      </div>
       {/* Enhanced Sticky Filter Bar */}
 
       <main className="min-h-screen bg-gradient-to-br from-blue-50/30 via-white to-indigo-50/20">
@@ -121,23 +130,100 @@ export default function Products() {
                     {t("products.error.body")}
                   </p>
                 </div>
-              ) : products.length > 0 ? (
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 ring-inset pt-3 ">
-                  {products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-32">
-                  <div className="w-32 h-32 mx-auto mb-10 rounded-full bg-blue-50/50 flex items-center justify-center ring-8 ring-blue-100/30">
-                    <Package className="w-16 h-16 text-blue-500" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-800 mb-4">{t("products.empty.title")}</h3>
-                  <p className="text-lg text-gray-600 max-w-md mx-auto">
-                    {t("products.empty.body")}
-                  </p>
-                </div>
-              )}
+              ) :
+                products.length > 0 ? (
+                  <>
+                    {/* Clickable Product Cards Grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 ring-inset pt-3">
+                      {products.map((product) => (
+                        <div
+                          key={product.id}
+                          onClick={() => setSelectedProduct(product)}
+                          className="cursor-pointer transition-all duration-300 hover:scale-105 "
+                        >
+                          <ProductCard product={product} />
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* ONE Single Dialog for all products */}
+                    <Dialog
+                      open={!!selectedProduct}
+                      onOpenChange={(open) => !open && setSelectedProduct(null)}
+                    >
+                      {/* the original code 
+                       <DialogContent className="max-w-4xl h-[80vh] p-0 overflow-hidden bg-black">
+                        {selectedProduct && (
+                          <CircularGallery
+                            items={
+                              // Now safe: only runs when selectedProduct exists
+                              selectedProduct.prods.map((prod) => ({
+                                image: prod.url,
+                                text: prod.alt || selectedProduct.name,
+                              }))
+                            }
+                            bend={3}
+                            textColor="#ffffff"
+                            borderRadius={0.05}
+                            scrollEase={0.02}
+                          />
+                        )},
+                      </DialogContent> */}
+                    
+                      <DialogContent className="max-w-4xl h-[80vh] p-0 overflow-hidden bg-gradient-to-br from-blue-950 via-blue-800 to-blue-600 ">
+                        {/* Background effects container */}
+                        <div className="absolute inset-0 z-0 overflow-hidden">
+                          {/* Blurred glow orbs */}
+                          <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-500/30 rounded-full blur-[160px]" />
+                          <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-indigo-400/20 rounded-full blur-[140px]" />
+
+                          {/* 🔮 Aurora overlay */}
+                          <div className="absolute inset-0 opacity-60 pointer-events-none">
+                            <Aurora
+                              colorStops={["#0F172A", "#3B82F6", "#2DD4BF"]}
+                              blend={0.1}
+                              amplitude={1.2}
+                              speed={1}
+                            />
+                          </div>
+                          {/* 🌑 contrast overlay */
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/30" />}
+
+                        </div>
+
+
+                        {/* CircularGallery on top */}
+                        {selectedProduct && (
+                          <div className="relative z-20 h-full w-full">
+                            <CircularGallery
+                              items={
+                                selectedProduct.prods.map((prod) => ({
+                                  image: prod.url,
+                                  text: prod.alt || selectedProduct.name,
+                                }))
+                              }
+                              bend={3}
+                              textColor="#ffffff"
+                              borderRadius={0.05}
+                              scrollEase={0.02}
+                            />
+                          </div>
+                        )}
+                      </DialogContent>
+                    </Dialog>
+                  </>
+                )
+                  : (
+                    <div className="text-center py-32">
+                      <div className="w-32 h-32 mx-auto mb-10 rounded-full bg-blue-50/50 flex items-center justify-center ring-8 ring-blue-100/30">
+                        <Package className="w-16 h-16 text-blue-500" />
+                      </div>
+                      <h3 className="text-3xl font-bold text-gray-800 mb-4">{t("products.empty.title")}</h3>
+                      <p className="text-lg text-gray-600 max-w-md mx-auto">
+                        {t("products.empty.body")}
+                      </p>
+                    </div>
+                  )}
             </div>
           </section>
         </div>

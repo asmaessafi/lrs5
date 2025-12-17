@@ -6,6 +6,7 @@ import { useLanguage } from "@/i18n";
 
 interface ProductCardProps {
   product: Product;
+  onClick?: () => void;
 }
 
 const brandColors: Record<string, { bg: string; text: string }> = {
@@ -14,7 +15,7 @@ const brandColors: Record<string, { bg: string; text: string }> = {
   "AL JARA": { bg: "from-rose-600 to-purple-700", text: "text-white" },
 };
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onClick }: ProductCardProps) {
   const [badgeVisible, setBadgeVisible] = useState(false);
   const isMobile = typeof window !== "undefined" ? window.innerWidth < 768 : false;
   const brandColor = brandColors[product.brand] || { bg: "from-blue-600 to-blue-700", text: "text-white" };
@@ -27,9 +28,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Card
+      onClick={onClick}
       onTouchStart={isMobile ? handleTouchStart : undefined}
       className={cn(
-        "group relative overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md shadow-lg transition-all duration-700",
+        "group relative overflow-hidden rounded-3xl bg-white/95 backdrop-blur-md shadow-lg transition-all duration-700 cursor-pointer",
         isMobile
           ? "hover:shadow-lg hover:-translate-y-1"
           : "hover:shadow-2xl hover:-translate-y-3 hover:ring-4 hover:ring-blue-400/30 hover:ring-offset-4 hover:ring-offset-white/50",

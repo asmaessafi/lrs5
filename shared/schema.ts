@@ -22,6 +22,7 @@ export interface Product {
   category: Category;
   description: string;
   variants?: string[];
+  prods:{ url: string; alt: string }[];
   imageUrl: string;
 }
 
@@ -61,6 +62,7 @@ export const products: Product[] = [
     category: "gel-douche",
     description: "Revigorant – Hydratant",
     variants: ["Kiss Me", "La Vie en Rose", "Macaron Gourmand", "Macha3ir Oriental"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=600&fit=crop",
   },
   {
@@ -70,6 +72,7 @@ export const products: Product[] = [
     category: "gel-douche",
     description: "Relaxant – Rafraîchissant",
     variants: ["Mojito Cocktail", "Montagne & Neige", "Sidi Bou-Saïd Voyage", "Tahiti Voyage"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=600&fit=crop",
   },
   {
@@ -79,6 +82,7 @@ export const products: Product[] = [
     category: "gel-douche",
     description: "Fresh – Premium",
     variants: ["Cedarwood", "Musk", "Lavender"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1620756235483-a4d8e6e40cd2?w=400&h=600&fit=crop",
   },
   {
@@ -88,6 +92,7 @@ export const products: Product[] = [
     category: "gel-douche",
     description: "Delicate – Tropical",
     variants: ["Vanilla", "Purple Flowers", "Marine Minerals"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=600&fit=crop",
   },
   {
@@ -97,6 +102,7 @@ export const products: Product[] = [
     category: "deodorant",
     description: "Revigorant – Excitant",
     variants: ["Kiss Me", "La Vie en Rose", "Macaron Gourmand", "Macha3ir Oriental"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1585652757141-8837d676f188?w=400&h=600&fit=crop",
   },
   {
@@ -106,6 +112,7 @@ export const products: Product[] = [
     category: "deodorant",
     description: "Relaxant – Fruité – Apaisant",
     variants: ["Mojito Cocktail", "Montagne & Neige", "Sidi Bou-Saïd Voyage", "Tahiti Voyage"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&h=600&fit=crop",
   },
   {
@@ -115,6 +122,7 @@ export const products: Product[] = [
     category: "roll-on",
     description: "48H Protection",
     variants: ["Gelée Royale & Argan", "Fleur de Lotus", "Algues Marines"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=600&fit=crop",
   },
   {
@@ -124,6 +132,7 @@ export const products: Product[] = [
     category: "roll-on",
     description: "48H Protection",
     variants: ["Orchidée & Vanille", "Fruits Rouges", "Mangue & Ananas"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=600&fit=crop",
   },
   {
@@ -132,6 +141,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "masques-capillaires",
     description: "Pour cheveux secs et abîmés",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=400&h=600&fit=crop",
   },
   {
@@ -140,6 +150,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "masques-capillaires",
     description: "Pour tous types de cheveux",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=600&fit=crop",
   },
   {
@@ -149,6 +160,7 @@ export const products: Product[] = [
     category: "shampoing",
     description: "Pour tous types de cheveux",
     variants: ["Tous types", "Anti-chute", "Anti-pelliculaire", "Pour hommes"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400&h=600&fit=crop",
   },
   {
@@ -158,6 +170,7 @@ export const products: Product[] = [
     category: "shampoing",
     description: "Formule douce pour toute la famille",
     variants: ["Pomme Verte", "Riz & Blé"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400&h=600&fit=crop",
   },
   {
@@ -167,6 +180,7 @@ export const products: Product[] = [
     category: "shampoing",
     description: "Soin après-shampoing",
     variants: ["Anti-chute", "Tous types"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=600&fit=crop",
   },
   {
@@ -176,6 +190,7 @@ export const products: Product[] = [
     category: "styling",
     description: "Fixation professionnelle",
     variants: ["Extrait Bambou", "Multivitaminé Cactus"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1621607512214-68297480165e?w=400&h=600&fit=crop",
   },
   {
@@ -185,6 +200,7 @@ export const products: Product[] = [
     category: "styling",
     description: "Style & Tenue",
     variants: ["Normale", "Forte", "XXL", "Titanium", "Shark"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1597854710846-e2e01bac44f4?w=400&h=600&fit=crop",
   },
   {
@@ -193,6 +209,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "soins-enfants-bebe",
     description: "Parfums fruités pour enfants",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=600&fit=crop",
   },
   {
@@ -201,6 +218,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "soins-enfants-bebe",
     description: "Cheveux et Corps – Formule douce",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=600&fit=crop",
   },
   {
@@ -209,6 +227,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "huiles",
     description: "Nutrition intense",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=600&fit=crop",
   },
   {
@@ -217,6 +236,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "huiles",
     description: "Force et brillance",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1600428877878-1a0fd85beda8?w=400&h=600&fit=crop",
   },
   {
@@ -225,6 +245,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "huiles",
     description: "Hydratation profonde",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=600&fit=crop",
   },
   {
@@ -233,6 +254,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "huiles",
     description: "Réparation capillaire",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=600&fit=crop",
   },
   {
@@ -241,6 +263,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "huiles",
     description: "Anti-chute – Fortifiant",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1600428877878-1a0fd85beda8?w=400&h=600&fit=crop",
   },
   {
@@ -249,6 +272,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "huiles",
     description: "Régénération cellulaire",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=600&fit=crop",
   },
   {
@@ -258,6 +282,7 @@ export const products: Product[] = [
     category: "gel-hydro-alcoolique",
     description: "Désinfectant mains",
     variants: ["80ml", "100ml", "250ml", "500ml", "1L", "5L"],
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1584483766114-2cea6facdf57?w=400&h=600&fit=crop",
   },
   {
@@ -266,6 +291,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "gel-hydro-alcoolique",
     description: "Protection antibactérienne",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1583947581924-860bda6a26df?w=400&h=600&fit=crop",
   },
   {
@@ -274,6 +300,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "cremes-vaselines",
     description: "Protection et hydratation",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=400&h=600&fit=crop",
   },
   {
@@ -282,6 +309,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "cremes-vaselines",
     description: "Hydratation intense",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=600&fit=crop",
   },
   {
@@ -290,6 +318,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "cremes-vaselines",
     description: "Beurre corporel nourrissant",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=600&fit=crop",
   },
   {
@@ -298,6 +327,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "cremes-vaselines",
     description: "Formule originale",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=400&h=600&fit=crop",
   },
   {
@@ -306,6 +336,7 @@ export const products: Product[] = [
     brand: "LYS INTENSE",
     category: "autres",
     description: "Lisse et protège",
+    prods:[{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'},{url:"https://picsum.photos/seed/1/800/600?grayscale",alt:'img'}],
     imageUrl: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=600&fit=crop",
   },
 ];
