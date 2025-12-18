@@ -6,9 +6,6 @@ import { type Product, type Category, categoryLabels, products } from "@shared/s
 import { Package } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useLanguage } from "@/i18n";
-// import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-// import { Button } from "@/components/ui/button";
-// import { SlidersHorizontal } from "lucide-react";
 import CircularGallery from '@/components/CircularGallery.tsx';
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import Aurora from "@/components/ui/Aurora";
@@ -45,7 +42,7 @@ async function fetchProducts(category: Category | "all"): Promise<Product[]> {
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  // const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { language, t, tCategoryLabel } = useLanguage();
 
   const { data: products = [], isLoading, isFetching, isError } = useQuery<Product[]>({
@@ -75,7 +72,29 @@ export default function Products() {
         </div>
       </section>
       <div style={{ height: '600px', position: 'relative' }}>
-        <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} />
+        <CircularGallery bend={3} textColor="black" borderRadius={0.05} scrollEase={0.02} 
+        items={[
+          { image: '/pictures/affiches/1.jpg', text: '' },
+          { image: '/pictures/affiches/2.jpg', text: '' },
+          { image: '/pictures/affiches/3.jpg', text: '' },
+          { image: '/pictures/affiches/4.jpg', text: '' },
+          { image: '/pictures/affiches/5.jpg', text: '' },
+          { image: '/pictures/affiches/6.jpg', text: '' },
+          { image: '/pictures/affiches/7.jpg', text: '' },
+          { image: '/pictures/affiches/8.jpg', text: '' },
+          { image: '/pictures/affiches/9.jpg', text: '' },
+          { image: '/pictures/affiches/10.jpg', text: '' },
+          { image: '/pictures/affiches/11.jpg', text: '' },
+          { image: '/pictures/affiches/12.jpg', text: '' },
+          { image: '/pictures/affiches/13.jpg', text: '' },
+          { image: '/pictures/affiches/14.jpg', text: '' },
+          { image: '/pictures/affiches/15.jpg', text: '' },
+          { image: '/pictures/affiches/16.jpg', text: '' },
+          { image: '/pictures/affiches/17.jpg', text: '' },
+          { image: '/pictures/affiches/18.jpg', text: '' },
+          { image: '/pictures/affiches/19.jpg', text: 'Product 19' }
+        ]}
+        />
       </div>
       {/* Enhanced Sticky Filter Bar */}
 
@@ -138,7 +157,7 @@ export default function Products() {
                       {products.map((product) => (
                         <div
                           key={product.id}
-                          onClick={() => setSelectedProduct(product)}
+                          // onClick={() => setSelectedProduct(product)}
                           className="cursor-pointer transition-all duration-300 hover:scale-105 "
                         >
                           <ProductCard product={product} />
@@ -147,37 +166,15 @@ export default function Products() {
                     </div>
 
                     {/* ONE Single Dialog for all products */}
-                    <Dialog
+                    {/* <Dialog
                       open={!!selectedProduct}
                       onOpenChange={(open) => !open && setSelectedProduct(null)}
                     >
-                      {/* the original code 
-                       <DialogContent className="max-w-4xl h-[80vh] p-0 overflow-hidden bg-black">
-                        {selectedProduct && (
-                          <CircularGallery
-                            items={
-                              // Now safe: only runs when selectedProduct exists
-                              selectedProduct.prods.map((prod) => ({
-                                image: prod.url,
-                                text: prod.alt || selectedProduct.name,
-                              }))
-                            }
-                            bend={3}
-                            textColor="#ffffff"
-                            borderRadius={0.05}
-                            scrollEase={0.02}
-                          />
-                        )},
-                      </DialogContent> */}
-                    
                       <DialogContent className="max-w-4xl h-[80vh] p-0 overflow-hidden bg-gradient-to-br from-blue-950 via-blue-800 to-blue-600 ">
-                        {/* Background effects container */}
+                     
                         <div className="absolute inset-0 z-0 overflow-hidden">
-                          {/* Blurred glow orbs */}
                           <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-500/30 rounded-full blur-[160px]" />
                           <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-indigo-400/20 rounded-full blur-[140px]" />
-
-                          {/* 🔮 Aurora overlay */}
                           <div className="absolute inset-0 opacity-60 pointer-events-none">
                             <Aurora
                               colorStops={["#0F172A", "#3B82F6", "#2DD4BF"]}
@@ -186,13 +183,8 @@ export default function Products() {
                               speed={1}
                             />
                           </div>
-                          {/* 🌑 contrast overlay */
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/30" />}
-
                         </div>
-
-
-                        {/* CircularGallery on top */}
                         {selectedProduct && (
                           <div className="relative z-20 h-full w-full">
                             <CircularGallery
@@ -210,7 +202,7 @@ export default function Products() {
                           </div>
                         )}
                       </DialogContent>
-                    </Dialog>
+                    </Dialog> */}
                   </>
                 )
                   : (

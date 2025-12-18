@@ -478,7 +478,7 @@ class App {
   ) {
     const defaultItems = [
       {
-        image: `https://picsum.photos/seed/1/800/600?grayscale`,
+        image: `https://picsum.photos/seed/1/800/600`,
         text: 'Bridge'
       },
       {
